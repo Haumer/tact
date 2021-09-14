@@ -30,6 +30,12 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
 
+# Group by dates
+gem 'groupdate'
+
+# Rails View Components
+gem "view_component", require: "view_component/engine"
+
 # Vue
 gem 'foreman'
 
