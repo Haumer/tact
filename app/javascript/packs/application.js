@@ -7,6 +7,19 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import Vue from 'vue'
+import App from '../components/app.vue'
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.appendChild(document.createElement('app'))
+  const app = new Vue({
+    el: 'app',
+    template: '<App/>',
+    components: { App }
+  })
+
+  console.log(app)
+})
 
 Rails.start()
 Turbolinks.start()
@@ -24,7 +37,7 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
-document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
-});
+// document.addEventListener('turbolinks:load', () => {
+//   // Call your functions here, e.g:
+//   // initSelect2();
+// });
