@@ -6,8 +6,21 @@
       </div>
       <% if day[:meetups] %>
         <% day[:meetups].each do |meetup| %>
-          <%= meetup.contact.first_name %>
-          <%= meetup.meetup_day.strftime("%H:%M:%S") %>
+          <div class="meetup">
+            <%= meetup.contact.first_name %>
+            <%= meetup.meetup_day.strftime("%H:%M:%S") %>
+          </div>
+        <% end %>
+      <% end %>
+      <% if day[:reminders] %>
+        <% day[:reminders].each do |reminder| %>
+          <div class="reminder">
+            <%= reminder.contact.first_name %>
+            <%= reminder.reminder_day.strftime("%H:%M:%S") %>
+            <%= link_to reminder_path(reminder) do %>
+            x
+            <% end %>
+          </div>
         <% end %>
       <% end %>
     </div>

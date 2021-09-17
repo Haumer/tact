@@ -1,8 +1,18 @@
 .calendar-entry {
-    border: 1px solid lightgrey;
-    background: #ffff;
-    padding: 16px 12px;
-    &-header {
-      font-size: 24px;
-    }
+  border: 1px solid lightgrey;
+  background: #ffff;
+  padding: 16px 12px;
+  &-header {
+    font-size: 24px;
   }
+}
+
+.reminder, .meetup {
+  padding: 4px;
+  border-radius: 2px;
+}
+
+.reminder {
+  border: 1px solid #efefef;
+  background-color: orange;
+}

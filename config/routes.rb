@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     resources :timelines, only: [:index], path: :timeline
   end
   resources :contracts
+  resources :reminders, only: [:destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
