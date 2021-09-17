@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2021_09_14_215940) do
   create_table "meetups", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "contact_id", null: false
+    t.string "event_name"
+    t.datetime "meetup_day"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["contact_id"], name: "index_meetups_on_contact_id"

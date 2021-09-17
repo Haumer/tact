@@ -1,0 +1,15 @@
+<div class="calendar">
+  <% calendar.each do |day| %>
+    <div class="calendar-entry">
+      <div class="calendar-entry-header">
+        <%= day_display(day[:day]) %>
+      </div>
+      <% if day[:meetups] %>
+        <% day[:meetups].each do |meetup| %>
+          <%= meetup.contact.first_name %>
+          <%= meetup.meetup_day.strftime("%H:%M:%S") %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -11,6 +11,17 @@ user.contacts.build(
     [
         {first_name: "Ben", last_name: "Baranger", contact_frequency: 1},
         {first_name: "Julio", last_name: "Quintana", contact_frequency: 1},
-        {first_name: "Phelim", last_name: "Dunleavy", contact_frequency: 2}
+        {first_name: "Phelim", last_name: "Dunleavy", contact_frequency: 2},
+        {first_name: "Richard", last_name: "Messmer", contact_frequency: 1},
+        {first_name: "Frederik", last_name: "Fink", contact_frequency: 3}
     ]
-).save
+)
+user.save
+
+# Create Random Meetups
+Contact.all.each do |contact|
+  rand(10).times do
+    random_date = (Date.today..Date.today + 30.day).to_a.sample
+    Meetup.create(user: user, contact: contact, meetup_day: random_date)
+  end
+end
