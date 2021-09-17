@@ -9,6 +9,9 @@
           <div class="meetup">
             <%= meetup.contact.first_name %>
             <%= meetup.meetup_day.strftime("%H:%M:%S") %>
+            <%= link_to meetup_path(meetup), method: :delete do %>
+              x
+            <% end %>
           </div>
         <% end %>
       <% end %>
@@ -17,8 +20,8 @@
           <div class="reminder">
             <%= reminder.contact.first_name %>
             <%= reminder.reminder_day.strftime("%H:%M:%S") %>
-            <%= link_to reminder_path(reminder) do %>
-            x
+            <%= link_to reminder_path(reminder), method: :delete do %>
+              x
             <% end %>
           </div>
         <% end %>
