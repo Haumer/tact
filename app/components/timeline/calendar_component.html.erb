@@ -5,8 +5,8 @@
         <%= day_display(day[:day]) %>
       </div>
       <% if day[:meetups] %>
-        <%= turbo_stream_from "meetups" %>
-        <%= turbo_frame_tag "meetups" do %>
+        <%= turbo_stream_from "meetups_#{day[:day]}" %>
+        <%= turbo_frame_tag "meetups_#{day[:day]}" do %>
           <% day[:meetups].each do |meetup| %>
             <%= turbo_frame_tag dom_id(meetup) do %>
               <div class="meetup">
