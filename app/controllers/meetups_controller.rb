@@ -8,7 +8,6 @@ class MeetupsController < ApplicationController
   def create
     @meetup = Meetup.new(meetup_params)
     @meetup.user = current_user
-    # binding.pry
     if @meetup.save
       redirect_back(fallback_location: timeline_index_path(user: current_user))
     else
