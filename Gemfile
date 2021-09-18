@@ -30,6 +30,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
 
+gem 'turbo-rails'
+gem 'hotwire-rails'
+
 # Group by dates
 gem 'groupdate'
 

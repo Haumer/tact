@@ -16,14 +16,19 @@
         <% end %>
       <% end %>
       <% if day[:reminders] %>
-        <% day[:reminders].each do |reminder| %>
-          <div class="reminder">
-            <%= reminder.contact.first_name %>
-            <%= reminder.reminder_day.strftime("%H:%M:%S") %>
-            <%= link_to reminder_path(reminder), method: :delete do %>
-              x
+        <%= turbo_stream_from "reminders" %>
+        <%= turbo_frame_tag "reminders" do %>
+          <% day[:reminders].each do |reminder| %>
+            <%= turbo_frame_tag dom_id(reminder) do %>
+              <div class="reminder">
+                <%= reminder.contact.first_name %>
+                <%= reminder.reminder_day.strftime("%H:%M:%S") %>
+                  <%= link_to reminder_path(reminder), method: :delete do %>
+                    x
+                  <% end %>
+              </div>
             <% end %>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>

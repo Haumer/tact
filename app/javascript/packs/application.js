@@ -7,18 +7,20 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import Vue from 'vue'
-import App from '../components/app.vue'
+// import Vue from 'vue'
+// import App from '../components/app.vue'
+import hotwire from '@hotwired/turbo-rails'
+import "@hotwired/turbo-rails"
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.body.appendChild(document.createElement('app'))
-  const app = new Vue({
-    el: 'app',
-    template: '<App/>',
-    components: { App }
-  })
+  // document.body.appendChild(document.createElement('app'))
+  // const app = new Vue({
+  //   el: 'app',
+  //   template: '<App/>',
+  //   components: { App }
+  // })
 
-  console.log(app)
+  // console.log(app)
 })
 
 Rails.start()
