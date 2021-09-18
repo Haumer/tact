@@ -10,10 +10,11 @@
         <% day[:meetups].each do |meetup| %>
           <%= turbo_frame_tag dom_id(meetup) do %>
             <div class="meetup">
+              <i class="far fa-calendar-alt"></i>
               <%= meetup.contact.first_name %>
               <%= meetup.meetup_day.strftime("%H:%M:%S") %>
               <%= link_to meetup_path(meetup), method: :delete do %>
-                x
+                <i class="fas fa-times"></i>
               <% end %>
             </div>
           <% end %>
@@ -25,10 +26,11 @@
           <% day[:reminders].each do |reminder| %>
             <%= turbo_frame_tag dom_id(reminder) do %>
               <div class="reminder">
+                <i class="far fa-bell"></i>
                 <%= reminder.contact.first_name %>
                 <%= reminder.reminder_day.strftime("%H:%M:%S") %>
                   <%= link_to reminder_path(reminder), method: :delete do %>
-                    x
+                    <i class="fas fa-times"></i>
                   <% end %>
               </div>
             <% end %>
