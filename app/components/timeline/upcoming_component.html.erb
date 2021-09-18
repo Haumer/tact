@@ -1,5 +1,5 @@
 <div class="upcoming">
-  <h2>You have are catching up with <%= upcoming_contacts.count %> people this week</h2>
+  <h2>You have are catching up with <%= pluralize(upcoming_contacts.count, "person") %> this week</h2>
   <div class="week-reminders">
     you should reach out to:
     <% upcoming_reminders.each do |reminder| %>

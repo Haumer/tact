@@ -9,8 +9,8 @@ user = User.create(
 # Create default contacts
 user.contacts.build(
     [
-        {first_name: "Ben", last_name: "Baranger", contact_frequency: 1},
-        {first_name: "Julio", last_name: "Quintana", contact_frequency: 1},
+        {first_name: "Ben", last_name: "Baranger", contact_frequency: 14},
+        {first_name: "Julio", last_name: "Quintana", contact_frequency: 7},
         {first_name: "Phelim", last_name: "Dunleavy", contact_frequency: 2},
         {first_name: "Richard", last_name: "Messmer", contact_frequency: 1},
         {first_name: "Frederik", last_name: "Fink", contact_frequency: 3}

@@ -45,7 +45,7 @@
       <% if no_meetups_or_reminders?(day) %>
         <%= turbo_frame_tag "new_meetup" do %>
           <div class="open-slot">
-              Nothing schedule for this day! <%= link_to "schedule now!", new_meetup_path(meetup: Meetup.new, date: day) %>
+              Nothing scheduled for this day! <%= link_to "Add a meetup now", new_meetup_path(meetup: Meetup.new, date: day) %>
           </div>
         <% end %>
       <% end %>
