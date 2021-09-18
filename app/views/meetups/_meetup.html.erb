@@ -1,0 +1,12 @@
+<%= turbo_frame_tag "meetups" do %>
+  <div class="meetup">
+    <div class="meetup-info">
+      <i class="far fa-calendar-alt"></i>
+      <%= meetup.contact.first_name %>
+      <%= meetup.meetup_day.strftime("%H:%M:%S") %>
+    </div>
+    <%= link_to meetup_path(meetup), method: :delete do %>
+      <i class="fas fa-times"></i>
+    <% end %>
+  </div>
+<% end %>

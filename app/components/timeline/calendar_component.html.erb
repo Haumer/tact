@@ -6,19 +6,20 @@
       </div>
       <% if day[:meetups] %>
         <%= turbo_stream_from "meetups" %>
-        <%= turbo_frame_tag "meetups" %>
-        <% day[:meetups].each do |meetup| %>
-          <%= turbo_frame_tag dom_id(meetup) do %>
-            <div class="meetup">
-              <div class="meetup-info">
-                <i class="far fa-calendar-alt"></i>
-                <%= meetup.contact.first_name %>
-                <%= meetup.meetup_day.strftime("%H:%M:%S") %>
+        <%= turbo_frame_tag "meetups" do %>
+          <% day[:meetups].each do |meetup| %>
+            <%= turbo_frame_tag dom_id(meetup) do %>
+              <div class="meetup">
+                <div class="meetup-info">
+                  <i class="far fa-calendar-alt"></i>
+                  <%= meetup.contact.first_name %>
+                  <%= meetup.meetup_day.strftime("%H:%M:%S") %>
+                </div>
+                <%= link_to meetup_path(meetup), method: :delete do %>
+                  <i class="fas fa-times"></i>
+                <% end %>
               </div>
-              <%= link_to meetup_path(meetup), method: :delete do %>
-                <i class="fas fa-times"></i>
-              <% end %>
-            </div>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
@@ -42,9 +43,11 @@
         <% end %>
       <% end %>
       <% if no_meetups_or_reminders?(day) %>
-        <div class="open-slot">
-            Nothing schedule for this day! schedule now!
-        </div>
+        <%= turbo_frame_tag "new_meetup" do %>
+          <div class="open-slot">
+              Nothing schedule for this day! <%= link_to "schedule now!", new_meetup_path(meetup: Meetup.new, date: day) %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   <% end %>

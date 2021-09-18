@@ -1,0 +1,12 @@
+<%= turbo_frame_tag meetup do %>
+  <%= simple_form_for meetup do |f| %>
+    <%= f.association :contact, collection: current_user.contacts, label_method: :first_name, value_method: :id %>
+    <% if params[:date].present? %>
+      <%= f.input :meetup_day, as: :hidden, :input_html => { value: params[:date] } %>
+    <% else %>
+      <%= f.input :meetup_day %>
+    <% end %>
+
+    <%= f.submit %>
+  <% end %>
+<% end %>
