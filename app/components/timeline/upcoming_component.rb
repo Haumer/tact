@@ -15,10 +15,6 @@ class Timeline::UpcomingComponent < ViewComponent::Base
     @user.meetups.where(meetup_day: Date.today..Date.today + 6.day)
   end
 
-  def upcoming_reminders
-    @user.reminders.where(reminder_day: Date.today..Date.today + 6.day)
-  end
-
   def upcoming_contacts
     upcoming_meetups.map { |meetup | meetup.contact }.uniq
   end

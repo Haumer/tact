@@ -1,9 +1,8 @@
 <div class="upcoming">
   <h2>You have are catching up with <%= pluralize(upcoming_contacts.count, "person") %> this week</h2>
   <div class="week-reminders">
-    you should reach out to:
-    <% upcoming_reminders.each do |reminder| %>
-      <%= reminder.contact.first_name %>
+    <% upcoming_meetups.each do |meetup| %>
+      <%= meetup.contact.first_name %> in <%= time_ago_in_words(meetup.meetup_day) %>
     <% end %>
   </div>
 </div>
