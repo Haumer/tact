@@ -3,6 +3,9 @@
 class Timeline::UpcomingComponent < ViewComponent::Base
   attr_reader :contacts, :user
 
+  include Turbo::StreamsHelper
+  include Turbo::FramesHelper
+
   def initialize(contacts:, user:)
     @contacts = contacts
     @user = user
