@@ -30,4 +30,8 @@ class Timeline::CalendarComponent < ViewComponent::Base
       day.strftime('%A, %b %d')
     end
   end
+
+  def no_meetups_or_reminders?(day)
+    !day[:meetups].present? && !day[:reminders].present?
+  end
 end

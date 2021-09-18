@@ -10,9 +10,11 @@
         <% day[:meetups].each do |meetup| %>
           <%= turbo_frame_tag dom_id(meetup) do %>
             <div class="meetup">
-              <i class="far fa-calendar-alt"></i>
-              <%= meetup.contact.first_name %>
-              <%= meetup.meetup_day.strftime("%H:%M:%S") %>
+              <div class="meetup-info">
+                <i class="far fa-calendar-alt"></i>
+                <%= meetup.contact.first_name %>
+                <%= meetup.meetup_day.strftime("%H:%M:%S") %>
+              </div>
               <%= link_to meetup_path(meetup), method: :delete do %>
                 <i class="fas fa-times"></i>
               <% end %>
@@ -26,16 +28,23 @@
           <% day[:reminders].each do |reminder| %>
             <%= turbo_frame_tag dom_id(reminder) do %>
               <div class="reminder">
-                <i class="far fa-bell"></i>
-                <%= reminder.contact.first_name %>
-                <%= reminder.reminder_day.strftime("%H:%M:%S") %>
-                  <%= link_to reminder_path(reminder), method: :delete do %>
-                    <i class="fas fa-times"></i>
-                  <% end %>
+                <div class="reminder-info">
+                  <i class="far fa-bell"></i>
+                  <%= reminder.contact.first_name %>
+                  <%= reminder.reminder_day.strftime("%H:%M:%S") %>
+                </div>
+                <%= link_to reminder_path(reminder), method: :delete do %>
+                  <i class="fas fa-times"></i>
+                <% end %>
               </div>
             <% end %>
           <% end %>
         <% end %>
+      <% end %>
+      <% if no_meetups_or_reminders?(day) %>
+        <div class="open-slot">
+            Nothing schedule for this day! schedule now!
+        </div>
       <% end %>
     </div>
   <% end %>
