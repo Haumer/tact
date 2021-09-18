@@ -1,6 +1,6 @@
 <div class="d-flex">
   <div class="col-sm-3">
-    left-pane
+    <%= render Timeline::RemindersComponent.new(user: current_user) %>
   </div>
   <div class="col-sm-6">
     <%= render Timeline::UpcomingComponent.new(contacts: current_user.contacts, user: current_user) %>

@@ -23,9 +23,9 @@
           <% end %>
         <% end %>
       <% end %>
-      <% if day[:reminders] %>
-        <%= turbo_stream_from "reminders" %>
-        <%= turbo_frame_tag "reminders" do %>
+      <%= turbo_stream_from "reminders" %>
+      <%= turbo_frame_tag "reminders" do %>
+        <% if day[:reminders] %>
           <% day[:reminders].each do |reminder| %>
             <%= turbo_frame_tag dom_id(reminder) do %>
               <div class="reminder">

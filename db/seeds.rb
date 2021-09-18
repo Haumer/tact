@@ -18,10 +18,18 @@ user.contacts.build(
 )
 user.save
 
-# Create Random Meetups
+# Create Meetups
 Contact.all.each do |contact|
+  # in the future
   rand(10).times do
     random_date = (Date.today..Date.today + 30.day).to_a.sample
     Meetup.create(user: user, contact: contact, meetup_day: random_date)
   end
+
+  # in the past
+  rand(10).times do
+    random_date = (Date.today  - 30.day..Date.today).to_a.sample
+    Meetup.create(user: user, contact: contact, meetup_day: random_date)
+  end
 end
+

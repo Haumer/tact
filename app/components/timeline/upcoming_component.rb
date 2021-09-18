@@ -12,7 +12,7 @@ class Timeline::UpcomingComponent < ViewComponent::Base
   end
 
   def upcoming_meetups
-    @user.meetups.where(meetup_day: Date.today..Date.today + 6.day)
+    @user.meetups.where(meetup_day: Date.today..Date.today + 6.day).sort_by(&:meetup_day)
   end
 
   def upcoming_contacts
