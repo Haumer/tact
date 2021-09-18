@@ -1,13 +1,13 @@
 <div class="d-flex">
   <div class="col-sm-3">
-    left
+    left-pane
   </div>
   <div class="col-sm-6">
     <%= render Timeline::UpcomingComponent.new(contacts: current_user.contacts, user: current_user) %>
     <%= render Timeline::CalendarComponent.new(contacts: current_user.contacts, user: current_user) %>
   </div>
   <div class="col-sm-3">
-    right
+    right-pane
   </div>
 </div>
 
