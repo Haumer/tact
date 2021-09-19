@@ -11,7 +11,7 @@
 <div class="reminder-contacts">
   <% reminders.each do |reminder| %>
     <div class="reminder-contact">
-      Last time you met <%= reminder.contact.first_name %> was <%= last_reminder_date(reminder.contact) %> but you want to meet up approx ~<%= reminder.contact.contact_frequency %> days
+      Last time you met <%= reminder.contact.first_name %> was <%= last_reminder_date(reminder.contact) %> but you want to meet up approx every ~<%= reminder.contact.contact_frequency %> days
     </div>
   <% end %>
 </div>

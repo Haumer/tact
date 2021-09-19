@@ -24,8 +24,8 @@ class Timeline::CalendarComponent < ViewComponent::Base
 
   def day_display(day)
     case day
-    when Date.today then 'Today'
-    when Date.today + 1.day then 'Tomorrow'
+    when Date.today then "Today#{day.strftime(', %b %d')}"
+    when Date.today + 1.day then "Tomorrow#{day.strftime(', %b %d')}"
     else
       day.strftime('%A, %b %d')
     end

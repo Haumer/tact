@@ -23,8 +23,8 @@
           <% end %>
         <% end %>
       <% end %>
-      <%= turbo_stream_from "reminders" %>
-      <%= turbo_frame_tag "reminders" do %>
+      <%= turbo_stream_from "reminders_#{day[:day]}" %>
+      <%= turbo_frame_tag "reminders_#{day[:day]}" do %>
         <% if day[:reminders] %>
           <% day[:reminders].each do |reminder| %>
             <%= turbo_frame_tag dom_id(reminder) do %>
