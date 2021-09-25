@@ -6,7 +6,7 @@ class Contact < ApplicationRecord
   after_save :create_reminder
 
   def future_meetups
-    meetups.where("meetup_day > ?", Date.yesterday)
+    Meetup.future_for(self)
   end
 
   def create_reminder
