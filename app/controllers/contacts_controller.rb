@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
   before_action :find_contact, only: [:edit, :update]
   def index
-    @contacts = Contact.all
+    @contacts = Contact.where(user: current_user)
   end
 
   def new

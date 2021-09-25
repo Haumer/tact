@@ -1,8 +1,8 @@
 <div class="calendar">
   <% calendar.each do |day| %>
-    <div class="calendar-entry">
+    <div class="card card-shadow-md calendar-entry">
       <%= turbo_frame_tag "new_meetup" do %>
-        <div class="calendar-entry-header">
+        <div class="card-head calendar-entry-head">
           <%= day_display(day[:day]) %>
           <%= link_to new_meetup_path(meetup: Meetup.new, date: day, calendar_form: true, display_day: day_display(day[:day]) )do %>
             <i class="fas fa-calendar-plus"></i>

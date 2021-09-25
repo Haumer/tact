@@ -1,1 +1,3 @@
-index.html.erb
+<section id="contacts">
+  <%= render Contacts::CardComponent.with_collection(@contacts) %>
+</section>

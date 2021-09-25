@@ -1,17 +1,6 @@
 .calendar-entry {
-  border: 1px solid lightgrey;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  &-header {
+  &-head {
     background: #0069d1;
-    border-radius: 8px 8px 0px 0px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 24px;
-    color: white;
-    padding: 16px 12px 12px 12px;
     .fas {
       color: white;
     }
