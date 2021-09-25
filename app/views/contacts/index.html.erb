@@ -1,3 +1,4 @@
 <section id="contacts">
+  <%= link_to "add contact", new_user_contact_path %>
   <%= render Contacts::CardComponent.with_collection(@contacts) %>
 </section>

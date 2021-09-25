@@ -12,7 +12,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     @contact.user = current_user
     if @contact.save
-      redirect_back(fallback_location: user_contacts_path(user: current_user))
+      redirect_to user_contacts_path(user: current_user)
     else
       render :new
     end
