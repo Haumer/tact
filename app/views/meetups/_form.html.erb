@@ -1,6 +1,6 @@
 <%= turbo_frame_tag meetup do %>
   <% if params[:close_form] %>
-    <div class="calendar-entry-header">
+    <div class="card-head calendar-entry-head">
       <%= params[:display_day] %>
       <%= link_to new_meetup_path(meetup: Meetup.new, date: params[:day], calendar_form: true, display_day: params[:display_day]) do %>
         <i class="fas fa-calendar-plus"></i>
@@ -8,34 +8,34 @@
     </div>
   <% else %>
     <% if params[:calendar_form] %>
-    <div class="calendar-entry-header">
-      <%= params[:display_day] %>
-    </div>
-    <div class="calendar-entry-header-expanded">
+      <div class="card-head calendar-entry-head">
+        <%= params[:display_day] %>
+      </div>
+      <div class="calendar-entry-header-expanded">
+        <%= simple_form_for meetup do |f| %>
+        <%= f.association :contact, collection: current_user.contacts, label_method: :first_name, value_method: :id %>
+        <% if params[:date].present? %>
+          <%= f.input :meetup_day, as: :hidden, :input_html => { value: params[:date] } %>
+        <% else %>
+          <%= f.input :meetup_day %>
+        <% end %>
+
+        <%= f.submit %>
+      <% end %>
+      <%= link_to "x", new_meetup_path(date: params[:day], close_form: true, display_day: params[:display_day] ) %>
+      </div>
+    <% else %>
       <%= simple_form_for meetup do |f| %>
-      <%= f.association :contact, collection: current_user.contacts, label_method: :first_name, value_method: :id %>
-      <% if params[:date].present? %>
-        <%= f.input :meetup_day, as: :hidden, :input_html => { value: params[:date] } %>
-      <% else %>
-        <%= f.input :meetup_day %>
-      <% end %>
+        <%= f.association :contact, collection: current_user.contacts, label_method: :first_name, value_method: :id %>
+        <% if params[:date].present? %>
+          <%= f.input :meetup_day, as: :hidden, :input_html => { value: params[:date] } %>
+        <% else %>
+          <%= f.input :meetup_day %>
+        <% end %>
 
-      <%= f.submit %>
-    <% end %>
-    <%= link_to "x", new_meetup_path(date: params[:day], close_form: true, display_day: params[:display_day] ) %>
-    </div>
-  <% else %>
-    <%= simple_form_for meetup do |f| %>
-      <%= f.association :contact, collection: current_user.contacts, label_method: :first_name, value_method: :id %>
-      <% if params[:date].present? %>
-        <%= f.input :meetup_day, as: :hidden, :input_html => { value: params[:date] } %>
-      <% else %>
-        <%= f.input :meetup_day %>
+        <%= f.submit %>
       <% end %>
-
-      <%= f.submit %>
     <% end %>
-  <% end %>
   <% end %>
 <% end %>
 

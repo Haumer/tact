@@ -4,7 +4,8 @@
       <%= turbo_frame_tag "new_meetup" do %>
         <div class="card-head calendar-entry-head">
           <%= day_display(day[:day]) %>
-          <%= link_to new_meetup_path(meetup: Meetup.new, date: day, calendar_form: true, display_day: day_display(day[:day]) )do %>
+          <!-- Note: fix other_meetups: displays until reload -->
+          <%= link_to new_meetup_path(meetup: Meetup.new, date: day, calendar_form: true, display_day: day_display(day[:day]), other_meetups: no_meetups_or_reminders?(day)) do %>
             <i class="fas fa-calendar-plus"></i>
           <% end %>
         </div>
