@@ -1,9 +1,14 @@
 <div class="calendar">
   <% calendar.each do |day| %>
     <div class="calendar-entry">
-      <div class="calendar-entry-header">
-        <%= day_display(day[:day]) %>
-      </div>
+      <%= turbo_frame_tag "new_meetup" do %>
+        <div class="calendar-entry-header">
+          <%= day_display(day[:day]) %>
+          <%= link_to new_meetup_path(meetup: Meetup.new, date: day, calendar_form: true, display_day: day_display(day[:day]) )do %>
+            <i class="fas fa-calendar-plus"></i>
+          <% end %>
+        </div>
+      <% end %>
       <%= turbo_stream_from "meetups_#{day[:day]}" %>
       <%= turbo_frame_tag "meetups_#{day[:day]}" do %>
         <% if day[:meetups] %>
@@ -45,7 +50,7 @@
       <% if no_meetups_or_reminders?(day) %>
         <%= turbo_frame_tag "new_meetup" do %>
           <div class="open-slot">
-              Nothing scheduled for this day! <%= link_to "Add a meetup now", new_meetup_path(meetup: Meetup.new, date: day) %>
+            Nothing scheduled for this day!
           </div>
         <% end %>
       <% end %>

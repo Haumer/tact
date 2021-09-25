@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :users, path: :u do
     resources :timelines, only: [:index], path: :timeline
+    resources :contracts
   end
-  resources :contracts
   resources :reminders, only: [:destroy]
   resources :meetups
 end
