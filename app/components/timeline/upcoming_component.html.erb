@@ -1,5 +1,5 @@
 <div class="upcoming">
-  <h2>You are catching up with <%= pluralize(upcoming_contacts.count, "person") %> this week</h2>
+  <h2>You are meeting <%= pluralize(upcoming_contacts.count, "person") %> this week (<%= Date.today.strftime("%b %d") %> - <%= (Date.today + 6.day).strftime("%b %d") %>)</h2>
   <div class="week-upcomings">
     <% upcoming_meetups.group_by { |e| e.contact }.to_h.each do |contact, meetups| %>
       <div class="week-upcomings-contact">

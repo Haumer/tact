@@ -5,6 +5,10 @@ class Contact < ApplicationRecord
 
   after_save :create_reminder
 
+  def future_meetups
+    meetups.where("meetup_day > ?", Date.yesterday)
+  end
+
   def create_reminder
     return unless contact_frequency
 
